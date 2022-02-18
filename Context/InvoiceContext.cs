@@ -10,6 +10,11 @@ namespace Rechnungsverwaltung.Context
 {
     class InvoiceContext : DbContext
     {
+        public InvoiceContext()
+        {
+            Database.SetInitializer<InvoiceContext>(new InvoiceInitializer());
+        }
         public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<PositionEntity> Positions { get; set; }
     }
 }

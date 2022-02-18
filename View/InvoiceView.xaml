@@ -16,7 +16,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
             <RowDefinition Height="0.1*"/>
-            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -97,9 +98,9 @@
                  VerticalContentAlignment="Center"
                  Text="{Binding Path=ChosenVat, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <ListView Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="6" 
+        <ListView Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="6" 
                   ItemsSource="{Binding Path=ReList.InvoiceLists, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedItem="{Binding Path=Rechnungen}">
+                  SelectedItem="{Binding Path=Rechnungen}" Name="ListInvoice">
             <ListView.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Löschen" Command="{Binding Path=DeletCommand}"/>
@@ -116,6 +117,21 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <ListView Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="6" 
+                  ItemsSource="{x:Reference Name=ListInvoice}"
+                  >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="80" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="ItemNr" Width="170" DisplayMemberBinding="{Binding ItemNr}"/>
+                    <GridViewColumn Header="QTY" Width="170" DisplayMemberBinding="{Binding Qty}"/>
+                    <GridViewColumn Header="Price" Width="170" DisplayMemberBinding="{Binding Price}"/>
+                    <GridViewColumn Header="InvoiceId" Width="170" DisplayMemberBinding="{Binding InvoiceId}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
 
     </Grid>
 </Window>
