@@ -87,6 +87,32 @@ namespace Rechnungsverwaltung.Context
                 Price = 25,
             });
 
+            positions.Add(new PositionEntity
+            {
+                InvoiceId = 1,
+
+                ItemNr = 2,
+                Qty = 23,
+                Price = 24.99,
+            });
+
+            positions.Add(new PositionEntity
+            {
+                InvoiceId = 1,
+
+                ItemNr = 3,
+                Qty = 27,
+                Price = 12.99,
+            });
+
+            positions.Add(new PositionEntity
+            {
+                InvoiceId = 5,
+
+                ItemNr = 1,
+                Qty = 13,
+                Price = 10.99,
+            });
 
             context.Invoices.AddRange(defaults);
             context.Positions.AddRange(positions);

@@ -118,8 +118,8 @@
             </ListView.View>
         </ListView>
 
-        <ListView Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="6" 
-                  ItemsSource="{x:Reference Name=ListInvoice}"
+        <ListView Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="6"
+                  ItemsSource="{Binding Path=SelectedItem.Position, ElementName=ListInvoice}"
                   >
             <ListView.View>
                 <GridView>

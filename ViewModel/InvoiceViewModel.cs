@@ -37,7 +37,7 @@ namespace Rechnungsverwaltung.ViewModel
         public InvoiceViewModel()
         {
             var ctx1 = new InvoiceContext();
-            lists = ctx1.Invoices.ToList();
+            lists = ctx1.Invoices.Include("Position").ToList();
             ReList = InvoiceList.ConvertList(lists);
 
             InsertCommand = new RelayCommand(e => 
@@ -57,7 +57,7 @@ namespace Rechnungsverwaltung.ViewModel
                         ctx.Invoices.Add(invoice); //Datensatz einfügen
                         ctx.SaveChanges(); //speicher / commit
 
-                        lists = ctx.Invoices.OrderBy(x => x.ID).ToList();
+                        lists = ctx.Invoices.Include("Position").OrderBy(x => x.ID).ToList();
                         ReList = InvoiceList.ConvertList(lists);
 
                     }
