@@ -14,6 +14,7 @@ namespace Rechnungsverwaltung.Model
         public int ItemNr { get; set; }
         public int Qty { get; set; }
         public double Price { get; set; }
+        public double ToPrice { get; set; }
 
         public int InvoiceId { get; set; }             // FK der Rechung
         public Invoice InvoiceEntity { get; set; }     // Referenz auf die Rechnung
