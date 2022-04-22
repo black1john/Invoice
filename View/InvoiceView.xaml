@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rechnungsverwaltung.View"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:src="clr-namespace:Rechnungsverwaltung.ViewModel"
         xmlns:ribbon="clr-namespace:System.Windows.Controls.Ribbon;assembly=System.Windows.Controls.Ribbon"
         mc:Ignorable="d"
@@ -64,24 +65,27 @@
                 </ribbon:RibbonGroup>
             </ribbon:RibbonTab>
         </ribbon:Ribbon>
-        <Grid>
+        <TabControl>
+            <TabItem Header="Start">
+            <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.3*"/>
-                <RowDefinition Height="0.3*"/>
+                <!--<RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>-->
+                <RowDefinition Height="0.5*"/> <!--0.3-->
+                <RowDefinition Height="0.5*"/>
+                <!--0.3-->
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
+                <!--<ColumnDefinition Width="0.1*"/>
                 <ColumnDefinition Width="0.1*"/>
                 <ColumnDefinition Width="0.1*"/>
-                <ColumnDefinition Width="0.1*"/>
-                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="0.1*"/>-->
                 <ColumnDefinition Width="0.1*"/>
                 <ColumnDefinition Width="0.1*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0"
+            <!--<Label Grid.Row="0"
                    Grid.Column="0"
                    Content="CostumerName:"
                    FontSize="15"
@@ -148,9 +152,9 @@
                      Grid.Column="5"
                      FontSize="15"
                      VerticalContentAlignment="Center"
-                     Text="{Binding Path=ChosenVat, UpdateSourceTrigger=PropertyChanged}"/>
+                     Text="{Binding Path=ChosenVat, UpdateSourceTrigger=PropertyChanged}"/>-->
 
-            <ListView Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="6" 
+            <ListView Grid.Column="0" Grid.Row="0" 
                       ItemsSource="{Binding Path=ReList.InvoiceLists, UpdateSourceTrigger=PropertyChanged}"
                       SelectedItem="{Binding Path=Rechnungen}" Name="ListInvoice">
                 <ListView.ContextMenu>
@@ -160,31 +164,53 @@
                 </ListView.ContextMenu>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID" Width="70" DisplayMemberBinding="{Binding Path=ID, UpdateSourceTrigger=PropertyChanged}"/>
-                        <GridViewColumn Header="CostumerName" Width="160" DisplayMemberBinding="{Binding Path=CustomerName, UpdateSourceTrigger=PropertyChanged}"/>
-                        <GridViewColumn Header="CostumerAddress" Width="170" DisplayMemberBinding="{Binding Path=CustomerAddress, UpdateSourceTrigger=PropertyChanged}"/>
-                        <GridViewColumn Header="Amount" Width="100" DisplayMemberBinding="{Binding Path=Amount, UpdateSourceTrigger=PropertyChanged}"/>
-                        <GridViewColumn Header="InvoiceDate" Width="150" DisplayMemberBinding="{Binding Path=InvoiceDate, UpdateSourceTrigger=PropertyChanged}"/>
-                        <GridViewColumn Header="Vat" Width="100" DisplayMemberBinding="{Binding Path=Vat, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="ID" Width="30" DisplayMemberBinding="{Binding Path=ID, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="CostumerName" Width="110" DisplayMemberBinding="{Binding Path=CustomerName, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="CostumerAddress" Width="110" DisplayMemberBinding="{Binding Path=CustomerAddress, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="Amount" Width="60" DisplayMemberBinding="{Binding Path=Amount, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="InvoiceDate" Width="100" DisplayMemberBinding="{Binding Path=InvoiceDate, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="Vat" Width="40" DisplayMemberBinding="{Binding Path=Vat, UpdateSourceTrigger=PropertyChanged}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
 
-            <ListView Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="6"
+            <ListView Grid.Column="0" Grid.Row="1" 
                       ItemsSource="{Binding Path=SelectedItem.Position, ElementName=ListInvoice}"
                       >
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID" Width="80" DisplayMemberBinding="{Binding Id}"/>
-                        <GridViewColumn Header="ItemNr" Width="170" DisplayMemberBinding="{Binding ItemNr}"/>
-                        <GridViewColumn Header="QTY" Width="170" DisplayMemberBinding="{Binding Qty}"/>
-                        <GridViewColumn Header="Price" Width="170" DisplayMemberBinding="{Binding Price}"/>
-                        <GridViewColumn Header="InvoiceId" Width="170" DisplayMemberBinding="{Binding InvoiceId}"/>
+                        <GridViewColumn Header="ID" Width="30" DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn Header="ItemNr" Width="100" DisplayMemberBinding="{Binding ItemNr}"/>
+                        <GridViewColumn Header="QTY" Width="70" DisplayMemberBinding="{Binding Qty}"/>
+                        <GridViewColumn Header="Price" Width="80" DisplayMemberBinding="{Binding Price}"/>
+                        <GridViewColumn Header="InvoiceId" Width="100" DisplayMemberBinding="{Binding InvoiceId}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
 
+            <lvc:CartesianChart Series="{Binding SeriesCollectionInvoiceAmounts}" LegendLocation="Right" Grid.Row="0" Grid.Column="1">
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis Title="Invoice Amount" LabelFormatter="{Binding YFormatterInvoiceAmounts}"></lvc:Axis>
+                </lvc:CartesianChart.AxisY>
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Title="Invoice Date" LabelFormatter="{Binding XFormatterInvoiceAmounts}"></lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+            </lvc:CartesianChart>
 
+            <lvc:PieChart Name="Chart" Grid.Row="1" Grid.Column="1" Series="{Binding SeriesAmountInvoicePosition}" 
+            LegendLocation="Right" InnerRadius="0"></lvc:PieChart>
         </Grid>
+            </TabItem>
+            <TabItem Header="Bubble Chart">
+                <lvc:CartesianChart Grid.Row="1" Series="{Binding SeriesCollectionInvoicePositionAmount}">
+                    <lvc:CartesianChart.AxisX>
+                        <lvc:Axis Title="Invoice Date" LabelFormatter="{Binding XFormatterInvoicePositionAmount}"/>
+                    </lvc:CartesianChart.AxisX>
+                    <lvc:CartesianChart.AxisY>
+                        <lvc:Axis Title="Invoice Amount" LabelFormatter="{Binding YFormatterInvoicePositionAmount}"/>
+                    </lvc:CartesianChart.AxisY>
+                </lvc:CartesianChart>
+            </TabItem>
+        </TabControl>
     </DockPanel>
 </Window>

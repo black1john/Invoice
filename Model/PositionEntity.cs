@@ -12,7 +12,7 @@ namespace Rechnungsverwaltung.Model
         public int Id { get; set; } // Surrogate Key / Stellvertreter Key
 
         public int ItemNr { get; set; }
-        public int Qty { get; set; }
+        public double Qty { get; set; }
         public double Price { get; set; }
         public double ToPrice { get; set; }
 

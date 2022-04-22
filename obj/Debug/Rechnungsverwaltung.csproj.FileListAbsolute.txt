@@ -44,3 +44,13 @@ C:\Users\Jonas\Documents\IT_HTL\4_AHITN\SEW\Rechnungsverwaltung\bin\Debug\System
 C:\Users\Jonas\Documents\IT_HTL\4_AHITN\SEW\Rechnungsverwaltung\bin\Debug\System.Text.Json.xml
 C:\Users\Jonas\Documents\IT_HTL\4_AHITN\SEW\Rechnungsverwaltung\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Jonas\Documents\IT_HTL\4_AHITN\SEW\Rechnungsverwaltung\bin\Debug\System.ValueTuple.xml
+C:\Users\Jonas\Documents\IT_HTL\4_AHITN\SEW\Rechnungsverwaltung\bin\Debug\Gma.QrCodeNet.Encoding.dll
+C:\Users\Jonas\Documents\IT_HTL\4_AHITN\SEW\Rechnungsverwaltung\bin\Debug\Gma.QrCodeNet.Encoding.pdb
+C:\Users\Jonas\Documents\IT_HTL\4_AHITN\SEW\Rechnungsverwaltung\bin\Debug\Gma.QrCodeNet.Encoding.xml
+C:\Users\Jonas\Documents\IT_HTL\4_AHITN\SEW\Rechnungsverwaltung\bin\Debug\QRCoder.dll
+C:\Users\Jonas\Documents\IT_HTL\4_AHITN\SEW\Rechnungsverwaltung\bin\Debug\LiveCharts.dll
+C:\Users\Jonas\Documents\IT_HTL\4_AHITN\SEW\Rechnungsverwaltung\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Jonas\Documents\IT_HTL\4_AHITN\SEW\Rechnungsverwaltung\bin\Debug\LiveCharts.pdb
+C:\Users\Jonas\Documents\IT_HTL\4_AHITN\SEW\Rechnungsverwaltung\bin\Debug\LiveCharts.xml
+C:\Users\Jonas\Documents\IT_HTL\4_AHITN\SEW\Rechnungsverwaltung\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Jonas\Documents\IT_HTL\4_AHITN\SEW\Rechnungsverwaltung\bin\Debug\LiveCharts.Wpf.xml

@@ -16,6 +16,8 @@ namespace Rechnungsverwaltung.Printing
 
         public BitmapSource BarCode { get; set; }
 
+        public BitmapSource QrCode { get; set; }
+
         //optional
         public IList<PositionEntity> Positions { get; set; }
 

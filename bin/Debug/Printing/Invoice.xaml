@@ -12,7 +12,8 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="150"/>
-                <RowDefinition Height="150"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -39,12 +40,12 @@
                         <GridViewColumn Header="ItemNr" Width="170" DisplayMemberBinding="{Binding ItemNr}"/>
                         <GridViewColumn Header="Menge" Width="170" DisplayMemberBinding="{Binding Qty}"/>
                         <GridViewColumn Header="Preis" Width="170" DisplayMemberBinding="{Binding Price}"/>
-                        <GridViewColumn Header="Preis" Width="170" DisplayMemberBinding="{Binding ToPrice}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
 
             <Image Grid.Row="7" Grid.Column="2" Source="{Binding BarCode}" Width="200" Height="50"/>
+            <Image Grid.Row="8" Grid.Column="2" Source="{Binding QrCode}" Width="100" Height="50"/>
 
         </Grid>
         
